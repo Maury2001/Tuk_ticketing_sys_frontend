@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import logo from "../images/logo.jpg";
-import spider from "../images/images.jpg";
+import spider from "../images/spiderman.jpg";
 
 const Profilees = () => {
+  const [button, setButton] = useState("Edit profile");
   const [fname, setFname] = useState("Miles");
   const [lname, setLname] = useState("Morales");
   const [email, setEmail] = useState("spiderman@yahoo.com");
@@ -135,9 +136,9 @@ const Profilees = () => {
         </ul>
       </div>
       <div className="lg:grid grid-cols-2 sm:grid grid-col-1 w-full ">
-        <div className="grid grid-cols-1 justify-center p-10">
+        <div className="grid grid-cols-1 p-10">
           <img
-            className="ml-32 w-64 h-64 rounded-full border border-stone-800"
+            className=" w-96 rounded-full border border-stone-800"
             src={spider}
           />
 
@@ -145,7 +146,10 @@ const Profilees = () => {
             <h2 className="p-6 font-bold text-lg">
               {fname} {lname}
             </h2>
-            <button className=" bg-[#008080] hover:bg-white hover:text-[#008080] align-baseline dropdown-toggle ">
+            <button
+              onClick={() => setButton(Edit)}
+              className=" bg-[#008080] hover:bg-white hover:text-[#008080] align-baseline dropdown-toggle "
+            >
               <h3 className="flex">
                 <svg
                   className=""
@@ -162,7 +166,7 @@ const Profilees = () => {
                     d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
                   />
                 </svg>
-                Edit Profile
+                {button}
               </h3>
             </button>
           </div>
@@ -173,36 +177,47 @@ const Profilees = () => {
 
           <div className=" flex justify-evenly text-center text-lg">
             <div className="text-center text-xl">
-              <h3 className="p-5">First Name</h3>
-              <div className="bg-[#008080] rounded-xl w-56">
-                <span className="py-6">{fname}</span>
-              </div>
+              <h3 className="p-2">First Name</h3>
+              <input
+                className="p-2 rounded-xl bg-[#008080] w-44 m-2"
+                placeholder="first name"
+                value={fname}
+                onChange={(e) => setFname(e.target.value)}
+                type={"text"}
+              />
+             
             </div>
             <div className="text-center text-xl">
-              <h3 className="p-5">last Name</h3>
-              <div className="bg-[#008080] rounded-xl w-56">
-                <span className=" py-6">
-                  {lname}
-                </span>
-              </div>
+              <h3 className="p-2">Last Name</h3>
+              <input
+                className="p-2 rounded-xl bg-[#008080] w-44 m-2"
+                placeholder="last name"
+                value={lname}
+                onChange={(e) => setLname(e.target.value)}
+                type={"text"}
+              />
             </div>
           </div>
-          <div className="p-6 flex justify-evenly text-center text-lg">
+          <div className="p-4 flex justify-evenly text-center text-lg">
             <div className="text-center text-xl">
-              <h3 className="p-5">Contact</h3>
-              <div className="bg-[#008080] rounded-xl w-56">
-                <span className="py-6">
-                  {contact}
-                </span>
-              </div>
+              <h3 className="p-2">Contact</h3>
+              <input
+                className="p-2 rounded-xl bg-[#008080] w-44 m-3"
+                placeholder="contact"
+                value={contact}
+                onChange={(e) => setcontact(e.target.value)}
+                type={'text'}
+              />
             </div>
             <div className="text-center text-xl">
-              <h3 className="p-5">Email</h3>
-              <div className="bg-[#008080] rounded-xl w-56">
-                <span className="py-6">
-                  {email}
-                </span>
-              </div>
+              <h3 className="p-2">Email</h3>
+              <input
+                className="p-2 rounded-xl bg-[#008080] w-44 m-3"
+                placeholder="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type={"email"}
+              />
             </div>
           </div>
           <div className="text-center text-black p-10">
@@ -210,26 +225,30 @@ const Profilees = () => {
             <hr></hr>
             <div className="flex flex-row justify-evenly p-10">
               <div className="justify-evenly text-lg">
-                <h3 className="p-5"> School</h3>
-                <div className="bg-[#008080] rounded-xl w-56">
-                  <span className="py-6">
-                    {school}
-                  </span>
-                </div>
+                <h3 className="p-2"> School</h3>
+                <input
+                className="p-2 rounded-xl bg-[#008080] w-44 m-2"
+                placeholder="school"
+                value={school}
+                onChange={(e) => setSchool(e.target.value)}
+                type={"text"}
+              />
               </div>
               <div className=" justify-evenly text-center text-lg">
-                <h3 className="p-5">Course Of Study</h3>
-                <div className="bg-[#008080] rounded-xl w-56">
-                  <span className="py-6">
-                    {course}
-                  </span>
-                </div>
+                <h3 className="p-2">Course Of Study</h3>
+                <input
+                className="p-2 rounded-xl bg-[#008080] w-44 m-2"
+                placeholder="course"
+                value={course}
+                onChange={(e) => setCourse(e.target.value)}
+                type={"text"}
+              />
               </div>
             </div>
           </div>
         </div>
         <div className="grid grid-flow-row bg-[#008080] w-full col-span-3 text-white text-center align-bottom ">
-          <span>@tukenya</span>
+          <span>Copyright@Mother-ducker</span>
         </div>
       </div>
     </section>
